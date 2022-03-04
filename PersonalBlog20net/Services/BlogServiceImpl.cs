@@ -2,11 +2,13 @@
 using PersonalBlog20net.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace PersonalBlog20net.Services
+namespace PersonalBlog20net.Services.Impl
 {
-    public class BlogServiceImpl : IBlogServices
+    public class BlogServiceImpl : IBlogService
     {
         private readonly IHostingEnvironment _env;
         public BlogServiceImpl(IHostingEnvironment env)
@@ -37,14 +39,27 @@ namespace PersonalBlog20net.Services
             }
         }
 
+        private List<BlogPost> GetLastOrderingPosts(IEnumerable<BlogPost> query)
+        {
+            return query.OrderByDescending(e => e.PostId).Take(3).ToList();
+        }
+
         public List<BlogPost> GetLatestPosts()
         {
-            return Posts.OrderByDescending(e => e.PostId).Take(3).ToList();
+            return GetLastOrderingPosts(Posts);
+        }
+
+        public List<BlogPost> GetOlderPosts(int olderBlogPostId)
+        {
+            var query = Posts.Where(post => post.PostId < olderBlogPostId);
+            return GetLastOrderingPosts(query);
         }
 
         public string GetPostText(string link)
         {
-            throw new NotImplementedException();
+            var post = Posts.FirstOrDefault(post => post.Link == link);
+
+            return File.ReadAllText($"{_env.ContentRootPath}/wwwroot/Posts/{post.PostId}_post.md");
         }
     }
 }

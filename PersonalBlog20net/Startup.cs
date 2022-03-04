@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PersonalBlog20net.Services;
+using PersonalBlog20net.Services.Impl;
 
 namespace PersonalBlog20net
 {
@@ -20,7 +21,7 @@ namespace PersonalBlog20net
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<IBlogServices, BlogServiceImpl>();
+            services.AddSingleton<IBlogService, BlogServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
