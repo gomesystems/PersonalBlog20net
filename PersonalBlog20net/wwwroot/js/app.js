@@ -1,6 +1,7 @@
 ﻿var blogService = require('./blogService.js');
 const serviceWorker = require('./swRegister.js');
 const localization = require('./localization.js');
+const gyroscope = require('./gyroscope.js');
 
 let defferedPrompt;
 window.addEventListener('beforeinstallprompt', function (event) {
@@ -76,3 +77,6 @@ window.pageEvents = {
         }
     }
 }
+
+gyroscope.init();
+gyroscope.animate();
