@@ -2,11 +2,7 @@
 using Microsoft.Extensions.Logging;
 using PersonalBlog20net.Models;
 using PersonalBlog20net.Services;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PersonalBlog20net.Controllers
 {

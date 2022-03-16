@@ -49,11 +49,14 @@
             const converter = new showdown.Converter();
             const html = converter.makeHtml(text);
             template.showBlogItem(html, link);
+
             window.location = '#' + link;
         } else {
             let blogItemHtml = $('#blog-content-not-found').html().replace(/{{Link}}/g, link);
             template.showBlogItem(blogItemHtml, link);
             window.location = '#blog-item-container';
+
+            window.location = '#blog-grid-container';
         }
     }
 

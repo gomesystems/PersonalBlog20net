@@ -25,6 +25,10 @@
         }
     }
 
+
+
+
+
     function showBlogItem(html, link) {
         let template = $('#blog-item').html();
         template = template.replace('{{Link}}', link);
@@ -32,8 +36,11 @@
         $('#blog-item-container').html(template);
     }
 
+   
+
     return {
         appendBlogList: appendBlogList,
-        showBlogItem: showBlogItem
+        showBlogItem: showBlogItem,
+       
     }
 });

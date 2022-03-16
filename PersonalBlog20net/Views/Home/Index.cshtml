@@ -2,14 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bem vindo</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
 </div>
 
 <div class="alert alert-info show" id="connection-status"></div>
 
 <div class="blog-list card-columns" id="blog-list"></div>
+
 
 <div class="center">
     <button id="carregar-mais" class="btn btn-primary" onclick="pageEvents.loadMoreBlogPosts();">Carregar posts anteriores</button>
@@ -108,5 +111,20 @@
             <p>pronto</p>
             <button class="btn btn-success" onclick="pageEvents.loadBlogPost('{{Link}}');">ler!</button>
         </div>
+    </div>
+
+    <div>
+        
+
+
+
+        <button type="button" class="card-zap   ">
+            <a href="https://api.whatsapp.com/send?phone=5511941347474&text=Olá,%20meu%20amigo!" target="_blank">
+                Whatzapp
+            </a>
+        </button>
+        <button type="button" class="card-tel"><a href="tel:5511941347474">ligar para o 0800</a></button>
+        <button type="button" class="card-site"> <a href="mailto:carlos.gomes@funchalnegocios.com.br">E-mail</a></button>
+
     </div>
 </script>
